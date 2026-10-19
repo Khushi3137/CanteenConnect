@@ -256,6 +256,7 @@ Follow this sequence to demonstrate the complete full-stack flow:
 - **Counter QR Code Scanner:** Student presents a digital QR on pickup for instant validation.
 - **Kitchen Display System (KDS):** Large-screen kitchen view with auto-sound alerts on new incoming orders.
 - **Daily Specials & Combos:** Time-based menus (e.g. Breakfast available only before 11:00 AM).
+- **Analytics Dashboard:** Visualize sales and order trends.
 
 ---
 
