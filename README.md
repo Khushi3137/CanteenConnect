@@ -82,8 +82,8 @@ campus-canteen/
 │   ├── USE_CASES.md            # Detailed student & admin use cases
 │   ├── ARCHITECTURE.md         # 3-tier architecture, sequence diagrams, tech justifications
 │   ├── DATABASE_DESIGN.md      # ER diagram, collection schemas, price snapshot logic
-│   ├── TEST_CASES.md           # 17 exhaustive test cases with inputs and outcomes
-│   ├── PROJECT_PLAN.md         # 4-member team work allocation & Gantt chart
+│   ├── TEST_CASES.md           # 15 test cases with inputs and outcomes
+│   ├── PROJECT_PLAN.md         # 3-member team work allocation & Gantt chart
 │   ├── RISK_MANAGEMENT.md      # Project risk matrix and mitigation protocols
 │   └── CONTRIBUTION_TEMPLATE.md# Viva preparation notes and meeting log templates
 │

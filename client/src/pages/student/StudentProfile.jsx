@@ -47,7 +47,7 @@ const StudentProfile = () => {
 
       <div className="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden">
         {/* Profile Card Header */}
-        <div className="p-6 bg-linear-to-r from-orange-500 to-amber-500 text-white flex items-center gap-4">
+        <div className="p-6 bg-gradient-to-r from-orange-500 to-amber-500 text-white flex items-center gap-4">
           <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center font-black text-2xl text-white shadow-inner">
             {user?.name?.charAt(0).toUpperCase() || 'S'}
           </div>

@@ -3,14 +3,13 @@
 
 ---
 
-### 1. Team Organization & Work Allocation (4-Member Team)
+### 1. Team Organization & Work Allocation (3-Member Team)
 
 | Team Member | Role Focus | Primary Responsibilities |
 |---|---|---|
-| **Member 1** | **Frontend / Student UI Specialist** | - Responsive React UI using Vite & Tailwind CSS<br>- Student Dashboard, Menu view, and Food detail modals<br>- Shopping Cart management and Checkout workflow<br>- Live Order progress tracker with visual stepper |
-| **Member 2** | **Backend / API / Security Engineer** | - Node.js Express server architecture and routing<br>- JWT token generation and authentication middleware<br>- Password salting and hashing with `bcryptjs`<br>- Student and Admin RESTful endpoints and error handling |
-| **Member 3** | **Database & Admin Operations Lead** | - MongoDB schema design (User, FoodItem, Order models)<br>- Admin Dashboard metrics and operational aggregations<br>- Menu Item CRUD and instant availability toggling<br>- Order workflow status state machine and seed scripts |
-| **Member 4** | **QA, Documentation & Integration Lead** | - Black-box testing and Test Case ledger creation<br>- Software Engineering documentation (SRS, Architecture, Use Cases)<br>- API testing and cross-browser responsiveness checks<br>- Viva presentation preparation and repository hygiene |
+| **Member 1** | **Frontend / Student Experience Lead** | - Responsive React UI using Vite & Tailwind CSS<br>- Student Dashboard, Menu view, food detail modals, and Shopping Cart<br>- Checkout workflow and live order-progress stepper<br>- Student-side responsiveness and usability testing |
+| **Member 2** | **Backend / API / Security Engineer** | - Node.js Express server architecture, routing, and error handling<br>- JWT token generation, authentication middleware, and `bcryptjs` password hashing<br>- Student and Admin RESTful endpoints, including order placement and status updates<br>- API testing and frontend-backend integration support |
+| **Member 3** | **Database, Admin, QA & Documentation Lead** | - MongoDB schema design (User, FoodItem, Order models) and seed scripts<br>- Admin Dashboard, menu CRUD, availability controls, and order workflow state machine<br>- End-to-end testing, documentation (SRS, architecture, use cases), and viva preparation<br>- Repository hygiene and final integration review |
 
 ---
 
@@ -32,7 +31,7 @@ gantt
     Order Placement & Status Stepper    :done, w3_2, 2026-09-18, 5d
     Admin Kitchen Dashboard & Controls  :done, w3_3, 2026-09-19, 4d
     section Week 4: Integration & QA
-    End-to-End Testing (TC-01 - TC-17)  :done, w4_1, 2026-09-24, 3d
+    End-to-End Testing (15 test cases)  :done, w4_1, 2026-09-24, 3d
     SRS & Software Eng Artifacts        :done, w4_2, 2026-09-26, 3d
     Dry Run & Viva Preparation          :done, w4_3, 2026-09-29, 2d
 ```
@@ -46,7 +45,7 @@ gantt
 | **Week 1** | Project SRS, Architecture & Schema Finalization | Sept 07, 2026 | Completed | Approved by team |
 | **Week 2** | User Auth (JWT), Database Models, Base UI Shell | Sept 14, 2026 | Completed | Auth verified via Postman |
 | **Week 3** | Cart, Order APIs, Admin Kitchen Dashboard | Sept 21, 2026 | Completed | End-to-end order working |
-| **Week 4** | Full Testing (17 test cases), Documentation, Viva Prep | Sept 30, 2026 | Completed | Ready for evaluation |
+| **Week 4** | Full Testing (15 test cases), Documentation, Viva Prep | Sept 30, 2026 | Completed | Ready for evaluation |
 
 ---
 
@@ -54,7 +53,7 @@ gantt
 
 #### Meeting 1: Architecture & Scope Alignment
 - **Date:** September 02, 2026 | **Duration:** 45 mins
-- **Attendees:** All Members (1, 2, 3, 4)
+- **Attendees:** All Members (1, 2, 3)
 - **Agenda:** Finalize tech stack and agree on scope (strictly no real payment gateway; use Cash on Pickup).
 - **Outcomes:** Selected React + Vite for client, Express + MongoDB for backend.
 
@@ -76,7 +75,6 @@ gantt
 
 | Team Member | Specific Files Contributed | Key Achievements |
 |---|---|---|
-| **Member 1 (Frontend)** | `client/src/pages/student/*`, `client/src/components/FoodCard.jsx`, `CartContext.jsx` | Designed clean student ordering interface, responsive cart, and visual live progress stepper. |
-| **Member 2 (Backend)** | `server/server.js`, `controllers/authController.js`, `middleware/*`, `routes/authRoutes.js` | Built robust JWT authentication, bcrypt password hashing, and role verification guards. |
-| **Member 3 (Database/Admin)** | `models/*`, `controllers/adminController.js`, `seed/seed.js`, `pages/admin/*` | Created Mongoose schemas, seed scripts, admin kitchen dashboard, and status change workflow. |
-| **Member 4 (QA/Docs)** | `docs/*`, `README.md`, `tests`, `controllers/orderController.js` verification | Formulated 17 black-box test cases, SRS, architecture specs, and viva demo verification. |
+| **Member 1 (Frontend)** | `client/src/pages/student/*`, `client/src/components/FoodCard.jsx`, `client/src/context/CartContext.jsx` | Designed the student ordering interface, responsive cart, checkout flow, and visual live-progress stepper. |
+| **Member 2 (Backend/API)** | `server/server.js`, `server/controllers/authController.js`, `server/controllers/orderController.js`, `server/middleware/*`, `server/routes/*` | Built JWT authentication, password hashing, protected APIs, order processing, and server-side error handling. |
+| **Member 3 (Database/Admin/QA)** | `server/models/*`, `server/controllers/adminController.js`, `server/seed/seed.js`, `client/src/pages/admin/*`, `docs/*`, `README.md` | Created database schemas and seed data, admin kitchen controls, test documentation, system artifacts, and final integration checks. |

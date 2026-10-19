@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { 
   ShoppingBag, 
@@ -13,9 +13,10 @@ import {
 import { useCart } from '../../context/CartContext';
 import { useAuth } from '../../context/AuthContext';
 import { orderService } from '../../services/orderService';
+import { foodService } from '../../services/foodService';
 
 const CheckoutPage = () => {
-  const { cartItems, cartTotal, clearCart } = useCart();
+  const { cartItems, cartTotal, clearCart, removeFromCart } = useCart();
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -23,10 +24,46 @@ const CheckoutPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
+  // The cart is persisted in localStorage. If the database has been reseeded
+  // or an admin removes a menu item, discard that stale cart entry before an
+  // order is submitted.
+  useEffect(() => {
+    const validateCartItems = async () => {
+      try {
+        const res = await foodService.getFoodItems();
+        if (!res.success) return;
+
+        const availableIds = new Set(
+          res.data.filter((food) => food.available).map((food) => food._id)
+        );
+        const invalidItems = cartItems.filter(
+          (item) => !availableIds.has(item._id)
+        );
+
+        if (invalidItems.length > 0) {
+          invalidItems.forEach((item) => removeFromCart(item._id));
+          const itemNames = invalidItems.map((item) => item.name).join(', ');
+          setErrorMessage(
+            `${itemNames} ${invalidItems.length === 1 ? 'is' : 'are'} no longer available and ${invalidItems.length === 1 ? 'has' : 'have'} been removed from your cart.`
+          );
+        }
+      } catch (err) {
+        // Do not alter the cart when the menu cannot be checked (for example,
+        // when the server is temporarily unavailable).
+        console.error('Failed to validate cart items:', err);
+      }
+    };
+
+    validateCartItems();
+  }, []);
+
   if (cartItems.length === 0) {
     return (
       <div className="bg-white rounded-3xl border border-slate-200 p-8 text-center max-w-md mx-auto my-8">
         <h3 className="text-lg font-bold text-slate-900">Your cart is empty</h3>
+        {errorMessage && (
+          <p className="mt-2 text-xs font-medium text-rose-700">{errorMessage}</p>
+        )}
         <p className="text-xs text-slate-500 mt-1">Please select food items from the menu first.</p>
         <Link
           to="/menu"
