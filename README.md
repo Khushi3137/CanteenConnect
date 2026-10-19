@@ -14,6 +14,7 @@ The **Campus Canteen Pre-Order Management System** streamlines food ordering acr
 - **Strict Order Governance:** Order cancellation permitted strictly while in `Placed` status.
 - **Admin Kitchen Control:** Real-time analytics, instant dish availability toggles, and price management.
 - **Zero Fluff / Viva Ready:** Clean architecture without over-engineering; straightforward to demonstrate and defend in viva exams.
+- **Responsive UI:** Mobile‑first design with Tailwind CSS.
 
 ---
 
